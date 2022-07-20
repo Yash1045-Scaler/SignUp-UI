@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewBit</title>
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+    <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+</head>
+
+<body>
+    <div class="page">
+        <div class="page__sign-up sign-up">
+            <div class="sign-up__register register">
+                <div class="register__header header">
+                    <img class="header__logo"
+                        src="https://assets.interviewbit.com/assets/ibpp/moco-images/brand-bcc717b4058fed9412d98ef3bcd39d8f240669d8d79ddc3d331d26fb6529413c.svg.gz">
+                    <div class="header__title title">
+                        <span class="title__text">Free Mock SDE Interview Assessment</span>
+                        <div class="title__power-logo">
+                            Powered By
+                            <img
+                                src="https://assets.interviewbit.com/assets/ibpp/moco-images/scaler-logo-40ee66d1a8bae334500f41e98b8c773993e98c129873fac82d271135bb9b51eb.svg.gz">
+                        </div>
+                    </div>
+                    <div class="header__subtitle">
+                        Help us know you better for the best experience
+                    </div>
+                </div>
+                <form action="#" class="register__user user">
+                    <div class="user__form form">
+                        <div class="form__input input " input-val="username">
+                            <input name="name" type="text" placeholder=" " required="true" class="input__field"
+                                id="name-field">
+                            <label for="name-field" class="input__label">Full Name</label>
+                            <div class="input__error" input-err="username">
+                                Please enter a valid fullname
+
+                            </div>
+                        </div>
+                        <div class="form__input input " input-val="email">
+                            <input name="email" type="text" placeholder=" " required="true" class="input__field"
+                                id="email-field">
+                            <label for="email-field" class="input__label">E-Mail ID</label>
+                            <div class="input__error" input-err="email">
+                                Please enter a valid email
+                            </div>
+                        </div>
+                        <div class="form__phone phone">
+                            <div class="phone__country country" data-class="country-code">
+                                <input type="text" class="country__code" value="+91" />
+                                <div data-codes="country"></div>
+                                <span data-caret="phone">&#9660;</span>
+                            </div>
+
+                            <div class="phone__input input" input-val="phone">
+                                <input type="text" placeholder=" " required="true" class="input__field" id="phone-no" />
+                                <label for="phone-no" class="input__label">Phone Number</label>
+                                <div class="input__error" input-err="phone">
+                                    Please a valid phone number.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__input input " input-val="password">
+                            <input name="pwd" type="password" placeholder=" " required="true" class="input__field"
+                                id="pwd-field">
+                            <label for="pwd-field" class="input__label">Password</label>
+                            <div class="input__error input__error--pass" input-err="password">
+                                Must have length 8 containing a small case and upper case and a number.
+                            </div>
+                        </div>
+                        <div class="form__input input ">
+                            <div class="input__head">I am a</div>
+                            <div class="input__profile profile">
+                                <div class="profile__box" input-prof="student">
+                                    <img src="https://assets.interviewbit.com/packs/images/Student.9dc3f6.svg">
+                                    <span>Student</span>
+                                </div>
+                                <div class="profile__box " input-prof="professional">
+                                    <img src="https://assets.interviewbit.com/packs/images/Professionals.c668e0.svg">
+                                    <span>Professional</span>
+                                </div>
+                            </div>
+                            <div class="input__error" input-err="profile">
+                                Choose a Profile
+                            </div>
+                        </div>
+                        <div class="form__submit submit">
+                            <button class="submit__btn" input-btn="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="sign-up__profession profession">
+                <div id="avatar" class="profession__avatar">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

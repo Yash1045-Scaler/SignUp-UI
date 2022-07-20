@@ -1,0 +1,360 @@
+// Color Variables
+@err-color: #e22d4c;
+@active-color: #0080ff;
+@profileBoxColor:  #F2F8FF;
+
+
+html*{
+    box-sizing: inherit;
+    font-family: 'Lato', sans-serif;
+}
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    color: #515151;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 0.01rem;
+    line-height: 1.4;
+    padding: 0;
+    margin: 0;
+    div{
+        display: block;
+    }
+}
+button, input {
+    overflow: visible;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+.page{
+    overflow-y: scroll;
+    transition: 0.4s ease-in-out;
+    transform: translateX(0%);
+    height: 100%;
+    width: 100%;
+    max-width: none;
+    top: 0;
+    position: fixed;
+}
+.sign-up {
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    background: #00468C;
+    @media screen and (min-width: 769px) {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+        height: 100vh;
+    }
+    &__register{
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        max-width: 80rem;
+        padding: 2rem 6rem;
+        -webkit-box-flex: 0;
+        flex: 0 0 45%;
+        // overflow-y: scroll;
+        background: white;
+        position: relative;
+        @media screen and (max-width: 769px) {
+            // padding: 2rem;
+            -webkit-box-flex: 0;
+            flex: 0 0 100%;
+        }
+    }
+    &__profession{
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        -webkit-box-flex: 1;
+        background: #00468C;
+        flex: auto;
+        @media screen and (max-width:769px) {
+            display: none;
+        }
+    }
+}
+.profession__avatar{
+    flex-basis: 100%;
+    background: url(https://assets.interviewbit.com/assets/ibpp/moco_event/professional/moco-f1-common-08f74b39620f4465001c38619a77bb0540f6abfc466cf283d8f056546c14537b.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease;
+}
+.header{
+    margin:0 1.5rem 0 0;
+    @media screen and (max-width: 768px) {
+        font-size: 2rem;
+    }
+    &__logo{
+        width:18rem;
+        margin:0 0  2rem 0;
+    }
+    &__title{
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 2rem;
+        color: #000000;
+        margin-bottom: 0.8rem;
+    }&__subtitle{
+        font-size: 15px;
+    }
+}
+.title{
+    &__text{
+        font-family: 'Lato', sans-serif;
+        font-size: 2.3rem;
+        // letter-spacing: 0.02rem;
+    }
+    &__power-logo{
+        font-size: 14px;
+        background: #e6f2ff;
+        padding: 0.5rem 2rem;
+        border-radius: 3rem;
+        position: absolute;
+        top: 2rem;
+        right:2rem;
+        margin:0.5rem 0 0 3rem;
+        @media screen and ( max-width: 769px) {
+            display: none;
+        }
+        img{
+            width: 6.5rem;
+            margin:0 0 0 0.5rem;
+        }
+    }
+}
+.input{
+    margin: 2.3rem 0 1rem 0;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    position: relative;
+    &__field{
+        outline: none;
+        width: 90%;
+        border: 0.1rem solid #D6DEE5;
+        background: none !important;
+        padding: 2rem 1.3rem;
+        font-size: 1.6rem;
+        border-radius: 0.4rem;
+        
+        &:focus{
+            border-color: #0080ff;
+        }
+        &--error{
+            border-color: @err-color;
+            &:focus{
+                border-color: @err-color;
+            }
+        }
+        @media screen and (max-width: 769px) {
+            // margin: 2.3rem 0 1rem 0;
+        }
+    }
+    &__label{
+        padding:0 0.3rem 0 0.3rem;
+        cursor: text;
+        top: 1.8rem;
+        left: 1.3rem;
+        font-size: 1.6rem;
+        background: white;
+        position: absolute;
+        transition: 0.3s ease;
+        color: #61738E;
+        transition: top 200ms ease-in,
+        left 200ms ease-in,
+        font-size 200ms ease in;
+        &--error{
+            color:@err-color
+        }
+    }
+    &__error{
+        color: @err-color;
+        font-size: 1rem;
+        margin: 0 0 0 1rem;
+        position: absolute;
+        bottom: -1.5rem;
+        display: none;
+        &--pass{
+            @media screen and (max-width: 769px) {
+                bottom:-2.9rem;
+            }
+        }
+    }
+    &__head{
+        margin:0 0 1rem 0;
+        @media screen and (max-width: 769px) {
+            margin: 1rem 0 1rem 0;    
+        }
+    }
+}
+.input__field:focus ~ .input__label,
+.input__field:not(:placeholder-shown).input__field:not(:focus) ~ .input__label{
+    top:-0.8rem;
+    left:0.7rem;
+    font-size: 1.2rem;
+}
+.profile{
+    width: 80%;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex-direction: row;
+    &__box{
+        display: flex;
+        flex-wrap: wrap;
+        flex: 0 0 48%;
+        padding: 1rem 2rem;
+        -webkit-box-align: center;
+        align-items: center;
+        // align-content: center;
+        // justify-content: center;
+        -webkit-box-flex: 0;
+        margin: 0 2rem 0 0;
+        cursor: pointer;
+        border-radius: 0.8rem;
+        transition: 0.25  ease-in-out;
+        border: 0.1rem solid #D6DEE5;
+        font-size: 1.6rem;
+        &--selected{
+            border-color: @active-color;
+            background-color: @profileBoxColor;
+        }
+        @media screen and (max-width: 769px) {
+            font-size: 1.2rem;
+            flex: 0 0 60%;
+            padding: 0.5rem;
+        }
+        img{
+            margin: 0 0.5rem 0 0;
+            transform: scale(0.7);
+            @media screen and (max-width: 769px) {
+                    margin: 0 0.5rem 0 0;
+                    transform: scale(0.6);
+            }
+        }
+    }
+}
+.submit{
+    margin: 2.3rem 0 1rem 0;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;  
+    justify-content: center;
+    &__btn{
+        position: relative;
+        display: block;
+        width: 200px;
+        height: 36px;
+        border-radius: 18px;
+        background-color: #1ccaff;
+        border: solid 1px transparent;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 300;
+        cursor: pointer;
+        transition: all .1s ease-in-out;
+        &:hover {
+            background-color: rgb(1, 136, 194);
+            border-color: #fff;
+            transition: all .1s ease-in-out;
+        }
+        
+    }
+}
+.phone{
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+    &__country{
+        margin: 2.3rem 0 1rem 0;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        width: 8rem;
+    }
+    &__input{
+        margin: 2.3rem 0 1rem 1.5rem;
+    }
+}
+.country{
+    input{
+        outline: none;
+        width: 90%;
+        border: 0.1rem solid #D6DEE5;
+        background: none !important;
+        padding: 2rem 1.3rem;
+        font-size: 1.6rem;
+        border-radius: 0.4rem;
+        &:focus{
+            border-color: #0080ff;
+        }
+    }
+    span{
+        display: none;
+        position: absolute;
+        color: #e22d4c;
+        font-size: 0.6rem;
+        top: 5.1rem;
+        left: 0.8rem;
+    }
+    span[data-caret=phone] {
+        display: inline;
+        color: #515151;
+        font-size: 0.8rem;
+        left: 75%;
+        top: 2.5rem;
+    }
+}
+
+.phone [data-codes=country] {
+    // display: flex;
+    flex-direction: column;
+    display: none;
+    align-items: center;
+    position: absolute;
+    top: 5rem;
+    max-height: 15rem;
+    overflow-y: scroll;
+    z-index: 2;
+    border: 0.1rem solid #d6dee5;
+    background-color: #fff;
+}
+.phone [data-codes=country] span {
+    display: inline;
+    position: static;
+    color: #515151; 
+    font-size: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+}
+.phone [data-codes=country] span:hover {
+    background-color: #0080ff;
+    color: #fff;
+}
+.show-error{
+    display: inline;
+}
+@media screen and (max-width: 769px) {
+    body{
+        font-size: 1.4rem;
+    }
+}
