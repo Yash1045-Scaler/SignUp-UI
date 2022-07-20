@@ -24,20 +24,24 @@ const checker = (field) =>{
     fName = field.getAttribute("input-val");
     if(!inp?.value?.match(validator[fName])){
 
-        // console.log(fName);
         if(document.querySelector(`[input-err='${fName}']`)){
             valid = false;
-            
-            document.querySelector(`[input-err='${fName}']`).style.display ="inline";
-            inp.style.borderColor = errColor;
-            lbl.style.color = errColor;
+            document
+              .querySelector(`[input-err='${fName}']`)
+              .classList.add("show-error");
+
+            inp.classList.add("input__field--error");
+            lbl.classList.add("input__label--error");
         }
     }
     else{
         if(document.querySelector(`[input-err='${fName}']`)){
-            document.querySelector(`[input-err='${fName}']`).style.display ="none";
-            inp.style.borderColor = borderColor;
-            lbl.style.color = labelColor;
+            document
+              .querySelector(`[input-err='${fName}']`)
+              .classList.remove("show-error");
+
+            inp.classList.remove("input__field--error");
+            lbl.classList.remove("input__label--error");
         }
     }
 };
@@ -53,16 +57,17 @@ const unFocus = (field) => {
         if(field.getAttribute("input-val")=== "username"){
             const inp = field.querySelector("input"),
             lbl = field.querySelector("label");
-            document.querySelector(`[input-err='${fName}']`).style.display ="inline";
-            inp.style.borderColor = errColor;
-            lbl.style.color = errColor;
+            document.querySelector(`[input-err='${fName}']`).classList.add("show-error");
+
+            inp.classList.add("input__field--error");
+            lbl.classList.add("input__label--error");
         }
         else{
             const inp = field.querySelector("input"),
             lbl = field.querySelector("label");
-        document.querySelector(`[input-err='${fName}']`).style.display = "none";
-            inp.style.borderColor=borderColor;
-            lbl.style.color=labelColor;
+            document.querySelector(`[input-err='${fName}']`).classList.remove("show-error");
+            inp.classList.remove("input__field--error");
+            lbl.classList.remove("input__label--error");
         }
     }
 };
@@ -70,10 +75,8 @@ const unFocus = (field) => {
 const setProfile = (selected, unselected) => {
     profileSelection = true;
     document.querySelector("[input-err='profile']").style.display = "none";
-    selected.style.borderColor = inputColor;
-    selected.style.backgroundColor = profileBoxColor;
-    unselected.style.backgroundColor = white;
-    unselected.style.borderColor = borderColor;
+    selected.classList.add("profile__box--selected");
+    unselected.classList.remove("profile__box--selected");
 };
 
 const activateProfile = (field) => {
@@ -88,7 +91,6 @@ const activateProfile = (field) => {
     }
 };
 for(const field of dataFields){
-    // console.log(field.getAttribute("input-val"));
     field.querySelector("input")?.addEventListener("focusout", (event) => unFocus(field) );
 }
 profileProfessional.addEventListener("click", ()=> activateProfile(profileProfessional));
@@ -103,17 +105,15 @@ const reset = () =>{
         const lbl = field.querySelector("label");
         if(inp){
             inp.value="";
-            inp.style.borderColor=borderColor;
-            lbl.style.color=labelColor;
+            inp.classList.remove("input__field--error");
+            lbl.classList.remove("input__label--error");
         }
         else{
             field.style.borderColor=borderColor;
         }
     }
-    profileStudent.style.backgroundColor = white;
-    profileStudent.style.borderColor = borderColor;
-    profileProfessional.style.backgroundColor = white;
-    profileProfessional.style.borderColor = borderColor;
+    profileStudent.classList.remove("profile__box--selected");
+    profileProfessional.classList.remove("profile__box--selected");
     profileAvatar.style.backgroundImage ="url('https://assets.interviewbit.com/assets/ibpp/moco_event/professional/moco-f1-common-08f74b39620f4465001c38619a77bb0540f6abfc466cf283d8f056546c14537b.png')";
     document.querySelector("[data-class='country-code']").querySelector("input").value = "+91";
 }
@@ -127,7 +127,9 @@ submitBtn.addEventListener("click", (event) => {
 
     }
     if(!profileSelection){
-        document.querySelector("[input-err='profile']").style.display="inline";
+        document
+          .querySelector("[input-err='profile']")
+          .classList.add("show-error");
     }
     if(valid && profileSelection){
         reset();

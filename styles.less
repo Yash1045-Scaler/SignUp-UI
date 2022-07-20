@@ -1,6 +1,7 @@
 // Color Variables
 @err-color: #e22d4c;
 @active-color: #0080ff;
+@profileBoxColor:  #F2F8FF;
 
 
 html*{
@@ -153,8 +154,15 @@ form {
         padding: 2rem 1.3rem;
         font-size: 1.6rem;
         border-radius: 0.4rem;
+        
         &:focus{
             border-color: #0080ff;
+        }
+        &--error{
+            border-color: @err-color;
+            &:focus{
+                border-color: @err-color;
+            }
         }
         @media screen and (max-width: 769px) {
             // margin: 2.3rem 0 1rem 0;
@@ -173,7 +181,9 @@ form {
         transition: top 200ms ease-in,
         left 200ms ease-in,
         font-size 200ms ease in;
-        
+        &--error{
+            color:@err-color
+        }
     }
     &__error{
         color: @err-color;
@@ -223,6 +233,10 @@ form {
         transition: 0.25  ease-in-out;
         border: 0.1rem solid #D6DEE5;
         font-size: 1.6rem;
+        &--selected{
+            border-color: @active-color;
+            background-color: @profileBoxColor;
+        }
         @media screen and (max-width: 769px) {
             font-size: 1.2rem;
             flex: 0 0 60%;
@@ -335,6 +349,9 @@ form {
 .phone [data-codes=country] span:hover {
     background-color: #0080ff;
     color: #fff;
+}
+.show-error{
+    display: inline;
 }
 @media screen and (max-width: 769px) {
     body{
